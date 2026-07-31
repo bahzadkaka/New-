@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oral Care Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="chat-card">
+      <header class="chat-header">
+        <div>
+          <p class="eyebrow">Dentist-curated support</p>
+          <h1 id="botName">Oral Care Assistant</h1>
+          <p id="botSubtitle">Ask about oral-care products and general dental guidance.</p>
+        </div>
+        <span class="status-dot" title="Online"></span>
+      </header>
+
+      <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+
+      <div id="quickReplies" class="quick-replies"></div>
+
+      <form id="chatForm" class="chat-form">
+        <input
+          id="messageInput"
+          type="text"
+          placeholder="Type your question..."
+          autocomplete="off"
+          aria-label="Message"
+        />
+        <button type="submit">Send</button>
+      </form>
+
+      <footer class="chat-footer">
+        <span>This chatbot does not replace examination by a dentist.</span>
+        <a href="admin.html">Admin</a>
+      </footer>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
