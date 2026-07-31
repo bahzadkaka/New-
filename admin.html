@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="admin-shell">
+    <section id="loginPanel" class="admin-card narrow">
+      <h1>Admin Login</h1>
+      <p class="muted">Demo login only. Default password: <strong>admin123</strong></p>
+      <form id="loginForm" class="stack">
+        <label>Password<input id="adminPassword" type="password" required /></label>
+        <button type="submit">Login</button>
+        <p id="loginError" class="error-text"></p>
+      </form>
+    </section>
+    <section id="adminPanel" class="admin-card hidden">
+      <div class="admin-topbar"><div><p class="eyebrow">Knowledge manager</p><h1>Chatbot Admin Panel</h1></div><div class="button-row"><a class="button secondary" href="index.html">Open Chat</a><button id="logoutBtn" class="secondary" type="button">Logout</button></div></div>
+      <nav class="tabs"><button class="tab active" data-tab="settingsTab">Settings</button><button class="tab" data-tab="knowledgeTab">Knowledge Base</button><button class="tab" data-tab="dataTab">Backup</button></nav>
+      <section id="settingsTab" class="tab-panel active"><form id="settingsForm" class="form-grid">
+        <label>Bot name<input id="settingBotName" type="text" required /></label><label>Subtitle<input id="settingSubtitle" type="text" /></label>
+        <label class="full">Welcome message<textarea id="settingWelcome" rows="3"></textarea></label><label class="full">Fallback message<textarea id="settingFallback" rows="3"></textarea></label>
+        <label class="full">WhatsApp number<input id="settingWhatsapp" type="text" placeholder="9647701727117" /></label><label class="full">Quick replies, separated by commas<textarea id="settingQuickReplies" rows="3"></textarea></label>
+        <label>Change admin password<input id="settingPassword" type="password" placeholder="Leave blank to keep current" /></label><div class="full"><button type="submit">Save Settings</button><span id="settingsSaved" class="success-text"></span></div>
+      </form></section>
+      <section id="knowledgeTab" class="tab-panel"><form id="entryForm" class="entry-form"><input id="entryId" type="hidden" />
+        <label>Question / title<input id="entryQuestion" type="text" required /></label><label>Keywords, separated by commas<input id="entryKeywords" type="text" required placeholder="toothpaste, sensitivity, sensitive teeth" /></label>
+        <label class="full">Answer<textarea id="entryAnswer" rows="5" required></textarea></label><div class="full button-row"><button type="submit">Save Entry</button><button id="cancelEditBtn" class="secondary hidden" type="button">Cancel Edit</button></div>
+      </form><div class="table-toolbar"><input id="searchEntries" type="search" placeholder="Search knowledge base..." /><span id="entryCount" class="muted"></span></div><div id="entriesList" class="entries-list"></div></section>
+      <section id="dataTab" class="tab-panel"><div class="backup-grid"><article><h2>Export</h2><p class="muted">Download all chatbot settings and knowledge entries as JSON.</p><button id="exportBtn" type="button">Export JSON</button></article><article><h2>Import</h2><p class="muted">Restore chatbot data from a previously exported JSON file.</p><input id="importFile" type="file" accept=".json,application/json" /></article><article><h2>Reset</h2><p class="muted">Restore the original demo data.</p><button id="resetBtn" class="danger" type="button">Reset Data</button></article></div><p id="dataMessage" class="success-text"></p></section>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
